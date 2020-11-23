@@ -1,3 +1,3 @@
 # Entity Roleplay Hotwire
 ---
-[![Discord](https://discord.com/api/guilds/758468267781652512/widget.json)](https://entityroleplay.com/discord)
+[![Discord](https://media.discordapp.net/attachments/758638599699955732/773426444914786304/BannerDetail.gif)](https://entityroleplay.com/discord)
