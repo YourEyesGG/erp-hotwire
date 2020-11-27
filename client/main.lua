@@ -20,7 +20,6 @@ Citizen.CreateThread(function()
 			SetVehicleUndriveable(vehicle, true)
 			SetVehicleEngineOn(vehicle, false, true, true) -- Set Vehicle Engine OFF
 			if IsControlJustReleased(1, 38) then
-				TaskStartScenarioInPlace(playerPed, 'PROP_HUMAN_BUM_BIN', 10000, true) -- Hotwiring Animation
 				TriggerEvent("mythic_progbar:client:progress", {
 					name = "hotwiring",
 					duration = 10000,
@@ -34,17 +33,17 @@ Citizen.CreateThread(function()
 						disableCombat = true,
 					},
 					animation = {
-						animDict = "",
-						anim = "",
+						animDict = "mini@repair",
+						anim = "fixing_a_ped",
 					},
 					prop = {
 						model = "",
 					}
 				}, function(status)
 					if not status then
-						SetVehicleEngineOn(vehicle, true, true, false) -- Set Vehicle Engine ON
-						exports['mythic_notify']:DoHudText('success', 'Hotwiring Successfully') -- Mythic Notify Alert
-						--ClearPedTasks(playerPed)
+						SetVehicleEngineOn(vehicle, true, true, false)
+						exports['mythic_notify']:DoHudText('success', 'Hotwiring Successfully')
+						ClearPedTasks(playerPed)
 					end
 				end)
 			end	
