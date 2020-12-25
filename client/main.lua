@@ -16,7 +16,7 @@ Citizen.CreateThread(function()
 		if (IsPedJacking(playerPed)) then
 			local vehicle = ESX.Game.GetClosestVehicle()
 				
-			DrawText3D(MyCoords['x'], MyCoords['y'], MyCoords['z'], '[E] To Hotwiring', 0.6) -- Draw 3D Text
+			ESX.ShowHelpNotification('Tekan ~INPUT_CONTEXT~ Untuk Hotwiring') -- Hotwiring Press Notification
 			SetVehicleUndriveable(vehicle, true)
 			SetVehicleEngineOn(vehicle, false, true, true) -- Set Vehicle Engine OFF
 			if IsControlJustReleased(1, 38) then
@@ -50,19 +50,3 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
-
-function DrawText3D(x, y, z, text, scale) -- 3D Text Function
-	local onScreen, _x, _y = World3dToScreen2d(x, y, z)
-	local pX, pY, pZ = table.unpack(GetGameplayCamCoords())
- 
-	SetTextScale(scale, scale)
-	SetTextFont(4)
-	SetTextProportional(1)
-	SetTextEntry("STRING")
-	SetTextCentre(1)
-	SetTextColour(255, 255, 255, 215)
- 
-	AddTextComponentString(text)
-	DrawText(_x, _y)
-	ClearDrawOrigin()
-end
